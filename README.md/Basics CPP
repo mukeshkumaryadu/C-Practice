@@ -1,0 +1,230 @@
+#include <iostream>
+using namespace std;
+
+
+
+static void swapping(int a,int b)
+{
+    std::cout << "Before Swaping numbers: "<<a<<" and: "<<b<<endl;
+    a=a+b;
+    b=a-b;
+    a=a-b;
+    cout<<"After swapping Numbers: "<<a<< " and "<<b<<endl;
+}
+
+
+
+static void oddEven(int sum)
+{
+	if(sum<2)
+ {
+	cout<<”Wrong input”;
+      if(sum%2==0)
+     {
+        cout<<"Sum of both number is Even number "<<sum;
+    }else{
+        cout<<"sum of both number is odd number "<<sum;
+     }
+ }
+}
+
+
+
+static bool isPrime(int num)
+{
+    if(num<2)
+    {
+        return false;
+    }else if(num==2)
+    {
+        return true;
+    }else 
+    {
+        int i;
+        bool  isprime =true;
+        
+        for (i=2;i<=num-1;i++)
+        {
+            if(num%i==0)
+            {
+                isprime = false;
+            }
+        }
+        return isprime;
+    }
+}
+
+
+
+static void LargestNumber()
+{
+    cout<<endl <<"Largest Number is: ";
+     int a = 66 ;
+     int b = 66 ;
+     int c = 66 ;
+     
+      if(a>b && a>c )
+    {
+        cout<<a;
+    }else if(b>c)
+    {
+        cout<<b;
+     }else {
+        cout<<c;
+    }
+}
+
+
+
+static void reverseNumber(int num)
+{
+    int rev =0;
+    while(num>0)
+    {
+        int digit = num%10;
+        rev = rev * 10 + digit;
+        num /= 10;
+    }
+    
+    cout<<"After reverse Number is: "<<rev;
+}
+
+
+
+static int facorial(int n)
+{
+    if(n==0 || n==1)
+    {
+        return 1;
+    }
+    
+    int x = n * facorial(n-1);
+    return x;
+}
+
+
+
+static void fibonacci(int nth)
+{
+    int i;
+    int a=0;    
+    int b=1;
+    int next;
+    
+    cout<<0<<" "<<1;
+    
+    for(i=2;i<nth;i++)
+    {
+        next = a + b ;
+        cout<<" "<<next;
+        a=b;
+        b=next;
+    }
+}
+
+
+
+static bool isPalindrome(int num)
+{
+    int real = num;
+    int rev = 0;
+    int digit;
+ 
+    while(num>0)
+    {
+        digit=num%10;
+        rev = rev * 10 +digit;
+        num /=10;
+    }
+    
+    return real == rev; 
+}
+
+
+static void reverseString()
+{
+    char str[50];
+    cout<<"Enter String For Reversing: ";
+    cin>>str;
+    
+    int len = 0;
+    while(str[len] != '\0')
+    {
+        len++;
+    }
+    
+    int i = 0;
+    for(i=0;i<len/2;i++)
+    {
+        swap(str[i], str[len-i-1]);
+    }
+    
+    cout<<str;
+}
+
+
+
+static void counter()
+{
+    string str = "Mukesh Kumar";
+        int vowels =0;
+        int cons = 0;
+    for(char ch : str)
+    {
+        ch = tolower(ch);
+
+        
+        if(ch>='a' && ch<='z')
+        { 
+            if(ch=='a' || ch=='i' || ch=='o' || ch=='e' || ch=='u')
+            {
+                vowels++;
+            }else
+            {
+                cons++;
+            }
+        }        
+    }cout<<vowels<<" "<<cons;
+    
+}
+
+
+
+int main() 
+{
+    int a=76;
+    int b=33;
+    swapping(a,b);
+    cout<<endl;
+    
+    oddEven(a+b);
+    cout<<endl;
+    
+    LargestNumber();
+    cout<<endl<<endl;
+    
+    reverseNumber(a);
+    cout<<endl<<endl;
+    
+    cout<<isPrime(a)<<" "<<isPrime(11);
+    cout<<endl<<endl;
+    
+    cout<<"Factorial of 5 is: "<<facorial(5);
+    cout<<endl<<endl;
+    
+    cout<<"Fibonacci of 6 th term: ";
+    fibonacci(7);
+    cout<<endl<<endl;
+    
+    cout<<isPalindrome(121);
+    cout<<endl<<endl;
+    
+    reverseString();
+    cout<<endl<<endl;
+    
+    cout<<"Count the number of vowels and consonants in a string.";
+    counter();
+    
+    return 0;
+}
+
